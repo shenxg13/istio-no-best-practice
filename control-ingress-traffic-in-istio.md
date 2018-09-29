@@ -20,6 +20,7 @@
 - virtualservice定义中的http定义了路由规则，路由规则会写入到相应gateway pod的路由表中。
 - gateway pod的监听和路由会通过端口号绑定在一起。
 
+ <br/>
 
 
 #### 相关配置
@@ -32,7 +33,7 @@ ipvsadm -a -t 192.168.0.62:6280 -r 192.168.0.73:6280 -g
 
 - ipvs相关配置。
 
-
+<br/>
 
 ```
 apiVersion: networking.istio.io/v1alpha3
@@ -53,7 +54,7 @@ spec:
 
 - gateway相关配置。
 
-
+  <br/>
 
 ```
 apiVersion: networking.istio.io/v1alpha3
