@@ -106,6 +106,274 @@ spec:
 <br/>
 
 ```
+[~/K8s/istio/istio-azure-1.0.2/samples/httpbin]$ istioctl pc listener istio-ingressgateway-7ffb59776b-bn2sv -n istio-system -o json
+[
+    {
+        "name": "0.0.0.0_80",
+        "address": {
+            "socketAddress": {
+                "address": "0.0.0.0",
+                "portValue": 80
+            }
+        },
+        "filterChains": [
+            {
+                "filters": [
+                    {
+                        "name": "envoy.http_connection_manager",
+                        "config": {
+                            "access_log": [
+                                {
+                                    "config": {
+                                        "path": "/dev/stdout"
+                                    },
+                                    "name": "envoy.file_access_log"
+                                }
+                            ],
+                            "generate_request_id": true,
+                            "http_filters": [
+                                {
+                                    "config": {
+                                        "default_destination_service": "default",
+                                        "forward_attributes": {
+                                            "attributes": {
+                                                "source.uid": {
+                                                    "string_value": "kubernetes://istio-ingressgateway-7ffb59776b-bn2sv.istio-system"
+                                                }
+                                            }
+                                        },
+                                        "mixer_attributes": {
+                                            "attributes": {
+                                                "context.reporter.kind": {
+                                                    "string_value": "outbound"
+                                                },
+                                                "context.reporter.uid": {
+                                                    "string_value": "kubernetes://istio-ingressgateway-7ffb59776b-bn2sv.istio-system"
+                                                },
+                                                "source.namespace": {
+                                                    "string_value": "istio-system"
+                                                },
+                                                "source.uid": {
+                                                    "string_value": "kubernetes://istio-ingressgateway-7ffb59776b-bn2sv.istio-system"
+                                                }
+                                            }
+                                        },
+                                        "service_configs": {
+                                            "default": {}
+                                        },
+                                        "transport": {
+                                            "attributes_for_mixer_proxy": {
+                                                "attributes": {
+                                                    "source.uid": {
+                                                        "string_value": "kubernetes://istio-ingressgateway-7ffb59776b-bn2sv.istio-system"
+                                                    }
+                                                }
+                                            },
+                                            "check_cluster": "outbound|9091||istio-policy.istio-system.svc.cluster.local",
+                                            "network_fail_policy": {
+                                                "policy": "FAIL_CLOSE"
+                                            },
+                                            "report_cluster": "outbound|9091||istio-telemetry.istio-system.svc.cluster.local"
+                                        }
+                                    },
+                                    "name": "mixer"
+                                },
+                                {
+                                    "name": "envoy.cors"
+                                },
+                                {
+                                    "name": "envoy.fault"
+                                },
+                                {
+                                    "name": "envoy.router"
+                                }
+                            ],
+                            "rds": {
+                                "config_source": {
+                                    "ads": {}
+                                },
+                                "route_config_name": "http.80"
+                            },
+                            "stat_prefix": "0.0.0.0_80",
+                            "stream_idle_timeout": "0.000s",
+                            "tracing": {
+                                "client_sampling": {
+                                    "value": 100
+                                },
+                                "operation_name": "EGRESS",
+                                "overall_sampling": {
+                                    "value": 100
+                                },
+                                "random_sampling": {
+                                    "value": 100
+                                }
+                            },
+                            "upgrade_configs": [
+                                {
+                                    "upgrade_type": "websocket"
+                                }
+                            ],
+                            "use_remote_address": true
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]
+[~/K8s/istio/istio-azure-1.0.2/samples/httpbin]$
+```
+
+- gateway envoy listener相关配置。
+
+<br/>
+
+```
+[~/K8s/istio/istio-azure-1.0.2/samples/httpbin]$ istioctl pc route istio-ingressgateway-7ffb59776b-bn2sv -n istio-system -o json
+[
+    {
+        "name": "http.80",
+        "virtualHosts": [
+            {
+                "name": "httpbin-a.7cb9a9b7b318440399a0.eastus.aksapp.io:80",
+                "domains": [
+                    "httpbin-a.7cb9a9b7b318440399a0.eastus.aksapp.io",
+                    "httpbin-a.7cb9a9b7b318440399a0.eastus.aksapp.io:80"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/status"
+                        },
+                        "route": {
+                            "cluster": "outbound|8000||httpbin-a.default.svc.cluster.local",
+                            "timeout": "0.000s",
+                            "maxGrpcTimeout": "0.000s"
+                        },
+                        "decorator": {
+                            "operation": "httpbin-a.default.svc.cluster.local:8000/status*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service": {
+                                            "string_value": "httpbin-a.default.svc.cluster.local"
+                                        },
+                                        "destination.service.host": {
+                                            "string_value": "httpbin-a.default.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "httpbin-a"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "default"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://default/services/httpbin-a"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service": {
+                                            "string_value": "httpbin-a.default.svc.cluster.local"
+                                        },
+                                        "destination.service.host": {
+                                            "string_value": "httpbin-a.default.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "httpbin-a"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "default"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://default/services/httpbin-a"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "httpbin-b.7cb9a9b7b318440399a0.eastus.aksapp.io:80",
+                "domains": [
+                    "httpbin-b.7cb9a9b7b318440399a0.eastus.aksapp.io",
+                    "httpbin-b.7cb9a9b7b318440399a0.eastus.aksapp.io:80"
+                ],
+                "routes": [
+                    {
+                        "match": {
+                            "prefix": "/headers"
+                        },
+                        "route": {
+                            "cluster": "outbound|8000||httpbin-b.default.svc.cluster.local",
+                            "timeout": "0.000s",
+                            "maxGrpcTimeout": "0.000s"
+                        },
+                        "decorator": {
+                            "operation": "httpbin-b.default.svc.cluster.local:8000/headers*"
+                        },
+                        "perFilterConfig": {
+                            "mixer": {
+                                "forward_attributes": {
+                                    "attributes": {
+                                        "destination.service": {
+                                            "string_value": "httpbin-b.default.svc.cluster.local"
+                                        },
+                                        "destination.service.host": {
+                                            "string_value": "httpbin-b.default.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "httpbin-b"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "default"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://default/services/httpbin-b"
+                                        }
+                                    }
+                                },
+                                "mixer_attributes": {
+                                    "attributes": {
+                                        "destination.service": {
+                                            "string_value": "httpbin-b.default.svc.cluster.local"
+                                        },
+                                        "destination.service.host": {
+                                            "string_value": "httpbin-b.default.svc.cluster.local"
+                                        },
+                                        "destination.service.name": {
+                                            "string_value": "httpbin-b"
+                                        },
+                                        "destination.service.namespace": {
+                                            "string_value": "default"
+                                        },
+                                        "destination.service.uid": {
+                                            "string_value": "istio://default/services/httpbin-b"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "validateClusters": false
+    }
+]
+[~/K8s/istio/istio-azure-1.0.2/samples/httpbin]$
+```
+
+- gateway envoy route相关配置。
+
+<br/>
+
+```
 [~/K8s/istio/istio-azure-1.0.2/samples/httpbin]$ http http://httpbin-a.7cb9a9b7b318440399a0.eastus.aksapp.io:80/status/418
 HTTP/1.1 418 Unknown
 access-control-allow-credentials: true
@@ -157,3 +425,8 @@ x-envoy-upstream-service-time: 6
 ```
 
 - 测试结果。
+
+<br/>
+
+#### TLS多主机环境
+
