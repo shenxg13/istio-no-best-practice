@@ -373,7 +373,8 @@ spec:
         "name": "https",
         "port": 443,
         "protocol": "HTTPS"
-      },…
+      },
+…
     "labels": {
       "app": "nginx",
       "pod-template-hash": "1126943858",
