@@ -4,11 +4,11 @@
 
 #### AKS组件介绍
 
-![pre-istio-azure-aks-components-snapshot](./images/pre-istio-azure-aks-components-snapshot.png)
+![pre-istio-azure-aks-components-snapshot](../images/pre-istio-azure-aks-components-snapshot.png)
 
 <br/>
 
-![pre-istio-azure-aks-components](./images/pre-istio-azure-aks-components.png)
+![pre-istio-azure-aks-components](../images/pre-istio-azure-aks-components.png)
 
 - 在azure中新建resource group，名称为rg-kube01。
 - 在rg-kube01中新建virtual network，名称为vnet-kube01，并且在vnet-kube01中新建subnet，名称为subnet-kube01，cidr为10.240.0.0/16。
