@@ -1,5 +1,11 @@
 # Istio数据面配置解析02：在Egress Gateway中对基于sniHosts的TLS请求进行路由
 
+
+
+[TOC]
+
+
+
 ## 概述
 
 本文介绍了在Isito中直接转发TLS请求的场景：Mesh内部服务通过Service Entry和Egress Gateway访问外部的TLS服务。
