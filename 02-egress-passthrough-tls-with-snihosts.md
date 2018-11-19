@@ -12,7 +12,7 @@ TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在lis
 
 ## 相关拓扑
 
-![egress-serviceentry-egressgateway-structure](./images/istio-tls-sni-2-1.png)
+![egress-serviceentry-egressgateway-structure](./images/02-egress-passthrough-tls-with-snihosts-2-1.png)
 
 - sleep pod中的sleep container发送相关tls请求。
 - 请求被sleep pod中的istio-proxy container截获，并根据路由规则转发至egressgateway pod。
@@ -20,7 +20,7 @@ TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在lis
 
 
 
-![egress-serviceentry-egressgateway-mapping](./images/istio-tls-sni-2-2.png)
+![egress-serviceentry-egressgateway-mapping](./images/02-egress-passthrough-tls-with-snihosts-2-2.png)
 
 - 因为tls类型的路由属于tcp，所以无envoy route相关配置，路由均在listener中进行。
 - 使用istio serviceentry定义外部的nginx服务到envoy cluster和endpoint中的节点。
