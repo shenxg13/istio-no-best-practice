@@ -18,7 +18,7 @@ TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在lis
 
 ## 相关拓扑
 
-![istio-tls-sni-1-1](./images/01-ingress-passthrough-tls-with-snihosts-1-1.png)
+![01-ingress-passthrough-tls-with-snihosts-1](./images/01-ingress-passthrough-tls-with-snihosts-1.png)
 
 - 外部客户端发送相关tls请求。
 - 请求被发送至lb，并由lb转发至ingressgateway pod。
@@ -27,7 +27,7 @@ TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在lis
 
 
 
-![istio-tls-sni-1-2](./images/01-ingress-passthrough-tls-with-snihosts-1-2.png)
+![01-ingress-passthrough-tls-with-snihosts-2](./images/01-ingress-passthrough-tls-with-snihosts-2.png)
 
 - 因为tls类型的路由属于tcp，所以无envoy route相关配置，路由均在listener中进行。
 - 2个nginx pod，label为别为version: v1和version: v2。
