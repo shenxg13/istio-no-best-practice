@@ -2,7 +2,6 @@ istio no best practice.
 
 ***
 
-1. [control ingress traffic in istio.](./control-ingress-traffic-in-istio.md)
-2. [securing gateway traffic in istio.](./securing-gateway-traffic-in-istio.md)
-3. [pre istio azure aks intro.](./pre-istio-azure-aks-intro.md)
-4. [control multiple hosts gateway in isito.](./control-multiple-hosts-gateway-in-isito.md)
+1. [Istio数据面配置解析01：在Ingress Gateway中对基于sniHosts的TLS请求进行路由](./01-ingress-passthrough-tls-with-snihosts.md)
+2. [Istio数据面配置解析02：在Egress Gateway中对基于sniHosts的TLS请求进行路由](./02-egress-passthrough-tls-with-snihosts.md)
+
