@@ -1,5 +1,11 @@
 # Istio数据面配置解析01：在Ingress Gateway中对基于sniHosts的TLS请求进行路由
 
+
+
+[TOC]
+
+
+
 ## 概述
 
 本文介绍了在Isito中直接转发TLS请求的场景：外部服务通过Igress Gateway访问Mesh内部的TLS服务。
@@ -12,7 +18,7 @@ TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在lis
 
 ## 相关拓扑
 
-![istio-tls-sni-1-1](./images/istio-tls-sni-1-1.png)
+![istio-tls-sni-1-1](./images/01-ingress-passthrough-tls-with-snihosts-1-1.png)
 
 - 外部客户端发送相关tls请求。
 - 请求被发送至lb，并由lb转发至ingressgateway pod。
@@ -21,7 +27,7 @@ TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在lis
 
 
 
-![istio-tls-sni-1-2](./images/istio-tls-sni-1-2.png)
+![istio-tls-sni-1-2](./images/01-ingress-passthrough-tls-with-snihosts-1-2.png)
 
 - 因为tls类型的路由属于tcp，所以无envoy route相关配置，路由均在listener中进行。
 - 2个nginx pod，label为别为version: v1和version: v2。
