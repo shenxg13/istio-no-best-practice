@@ -360,6 +360,5 @@ Commercial support is available at
 ```
 
 - 测试结果。
-
 - 到nginx.external.svc.cluster.local的header为want: v1请求被正确转发至nginx01。
 - 到nginx.external.svc.cluster.local的header为want: v2请求被正确转发至nginx02。
