@@ -1,4 +1,4 @@
-# Istio数据面配置解析12：在Destination Rule中配置3个级别的Traffic Policy
+# Istio数据面配置解析12：在Destination Rule中配置4个级别的Traffic Policy
 
 
 
@@ -8,17 +8,19 @@
 
 ## 概述
 
-本文介绍了在Isito中DestinationRule中trafficPolicy的3个级别：
+本文介绍了在Isito中DestinationRule中trafficPolicy的4个级别：
 
 1. Global级别。
-2. Port级别。
+2. Global Port级别。
 3. Subset级别。
+4. Subset Port级别。
 
-这3个级别的trafficPolicy的优先级如下：
+这4个级别的trafficPolicy的优先级如下：
 
 1. Global级别的优先级最低。
-2. Port级别的trafficPolicy会覆盖Global级别的设置。
-3. Subset级别的trafficPolicy会覆盖Global和Port级别的设置。
+2. Globa Port级别的trafficPolicy会覆盖Global级别的设置。
+3. Subset级别的trafficPolicy会覆盖Global和Global Port级别的设置。
+4. Subset Port级别的trafficPolicy会覆盖Global级别，Global Port级别和Subset级别的设置。
 
 
 
@@ -307,7 +309,7 @@ spec:
 
 ### 相关拓扑
 
-![12-destinationrule-3-level-trafficpolicy-1](./images/12-destinationrule-3-level-trafficpolicy-1.png)
+![12-destinationrule-4-level-trafficpolicy-1](./images/12-destinationrule-4-level-trafficpolicy-1.png)
 
 - 使用istio destinationrule定义global级别的trafficpolicy。
 - trafficpolicy中定义负载均衡的方式为random。
@@ -425,15 +427,15 @@ spec:
 
 
 
-## Port级别
+## Global Port级别
 
 ### 相关拓扑
 
-![12-destinationrule-3-level-trafficpolicy-2](./images/12-destinationrule-3-level-trafficpolicy-2.png)
+![12-destinationrule-4-level-trafficpolicy-2](./images/12-destinationrule-4-level-trafficpolicy-2.png)
 
-- 使用istio destinationrule定义port级别的trafficpolicy。
-- port级别trafficpolicy中定义80端口的负载均衡的方式为random。
-- port级别trafficpolicy中定义443端口的负载均衡的方式为least_conn。
+- 使用istio destinationrule定义global port级别的trafficpolicy。
+- global port级别trafficpolicy中定义80端口的负载均衡的方式为random。
+- global port级别trafficpolicy中定义443端口的负载均衡的方式为least_conn。
 - 使用istio destinationrule为不同的label定义不同的subset。
 - nginx.default.svc.cluster.local的4个不同的cluster。
 - 80端口的2个cluster，负载均衡方式为random。
@@ -469,9 +471,9 @@ spec:
       version: v2
 ```
 
-- port级别destinationrule相关配置。
-- 配置port级别的destinationrule的80端口的trafficpolicy的loadbalancer策略为random。
-- 配置port级别的destinationrule的443端口的trafficpolicy的loadbalancer策略为least_conn。
+- global port级别destinationrule相关配置。
+- 配置global port级别的destinationrule的80端口的trafficpolicy的loadbalancer策略为random。
+- 配置global port级别的destinationrule的443端口的trafficpolicy的loadbalancer策略为least_conn。
 
 
 
@@ -554,8 +556,8 @@ spec:
 - outbound|80|v2|nginx.default.svc.cluster.local。
 - outbound|443|v1|nginx.default.svc.cluster.local。
 - outbound|443|v2|nginx.default.svc.cluster.local。
-- 因为使用了port级别的trafficpolicy，所以outbound|80|v1|nginx.default.svc.cluster.local和outbound|80|v2|nginx.default.svc.cluster.local的lbpolicy为random。
-- 因为使用了port级别的trafficpolicy，所以outbound|443|v1|nginx.default.svc.cluster.local和outbound|443|v2|nginx.default.svc.cluster.local的lbpolicy为least_request。
+- 因为使用了global port级别的trafficpolicy，所以outbound|80|v1|nginx.default.svc.cluster.local和outbound|80|v2|nginx.default.svc.cluster.local的lbpolicy为random。
+- 因为使用了global port级别的trafficpolicy，所以outbound|443|v1|nginx.default.svc.cluster.local和outbound|443|v2|nginx.default.svc.cluster.local的lbpolicy为least_request。
 
 
 
@@ -563,15 +565,15 @@ spec:
 
 ### 相关拓扑
 
-![12-destinationrule-3-level-trafficpolicy-3](./images/12-destinationrule-3-level-trafficpolicy-3.png)
+![12-destinationrule-4-level-trafficpolicy-3](./images/12-destinationrule-4-level-trafficpolicy-3.png)
 
-- 使用istio destinationrule定义subset级别的trafficpolicy
-- 使用istio destinationrule为不同的label定义不同的subset
-- subset级别trafficpolicy中定义v1的负载均衡的方式为random
-- subset级别trafficpolicy中定义v2的负载均衡的方式为least_conn
-- nginx.default.svc.cluster.local的4个不同的cluster
-- v1的2个cluster，负载均衡方式为random
-- v2的2个cluster，负载均衡方式为least_conn
+- 使用istio destinationrule为不同的label定义不同的subset。
+- 使用istio destinationrule定义subset级别的trafficpolicy。
+- subset级别trafficpolicy中定义v1的负载均衡的方式为random。
+- subset级别trafficpolicy中定义v2的负载均衡的方式为least_conn。
+- nginx.default.svc.cluster.local的4个不同的cluster。
+- v1的2个cluster，负载均衡方式为random。
+- v2的2个cluster，负载均衡方式为least_conn。
 
 
 
@@ -686,3 +688,155 @@ spec:
 - outbound|443|v2|nginx.default.svc.cluster.local。
 - 因为使用了subset级别的trafficpolicy，所以outbound|80|v1|nginx.default.svc.cluster.local和outbound|443|v1|nginx.default.svc.cluster.local的lbpolicy为random。
 - 因为使用了subset级别的trafficpolicy，所以outbound|80|v2|nginx.default.svc.cluster.local和outbound|443|v2|nginx.default.svc.cluster.local的lbpolicy为least_request。
+
+
+
+## Subset Port级别
+
+### 相关拓扑
+
+![12-destinationrule-4-level-trafficpolicy-4](./images/12-destinationrule-4-level-trafficpolicy-4.png)
+
+- 使用istio destinationrule为不同的label定义不同的subset。
+- 使用istio destinationrule定义subset port级别的trafficpolicy。
+- subset port级别trafficpolicy中定义v1的80端口的负载均衡的方式为random。
+- subset port级别trafficpolicy中定义v1的443端口的负载均衡的方式为least_conn。
+- subset port级别trafficpolicy中定义v2的80端口的负载均衡的方式为least_conn。
+- subset port级别trafficpolicy中定义v2的443端口的负载均衡的方式为random。
+- nginx.default.svc.cluster.local的4个不同的cluster。
+- v1的80端口的cluster，负载均衡方式为random。
+- v1的443端口的cluster，负载均衡方式为least_conn。
+- v2的80端口的cluster，负载均衡方式为least_conn。
+- v2的443端口的cluster，负载均衡方式为random。
+
+
+
+### 相关配置
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: dr-lb
+spec:
+  host: nginx.default.svc.cluster.local
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+    trafficPolicy:
+      portLevelSettings:
+      - port: 
+          number: 80
+        loadBalancer:
+          simple: RANDOM
+      - port: 
+          number: 443
+        loadBalancer:
+          simple: LEAST_CONN
+  - name: v2
+    labels:
+      version: v2
+    trafficPolicy:
+      portLevelSettings:
+      - port: 
+          number: 80
+        loadBalancer:
+          simple: LEAST_CONN
+      - port: 
+          number: 443
+        loadBalancer:
+          simple: RANDOM
+```
+
+- subset port级别destinationrule相关配置。
+- 配置subset port级别的destinationrule的v1的80端口的trafficpolicy的loadbalancer策略为random。
+- 配置subset port级别的destinationrule的v1的443端口的trafficpolicy的loadbalancer策略为least_conn。
+- 配置subset port级别的destinationrule的v2的80端口的trafficpolicy的loadbalancer策略为least_conn。
+- 配置subset port级别的destinationrule的v2的443端口的trafficpolicy的loadbalancer策略为random。
+
+
+
+```json
+{
+        "name": "outbound|80|v1|nginx.default.svc.cluster.local",
+        "type": "EDS",
+        "edsClusterConfig": {
+            "edsConfig": {
+                "ads": {}
+            },
+            "serviceName": "outbound|80|v1|nginx.default.svc.cluster.local"
+        },
+        "connectTimeout": "1.000s",
+        "lbPolicy": "RANDOM",
+        "circuitBreakers": {
+            "thresholds": [
+                {}
+            ]
+        }
+    }
+
+{
+        "name": "outbound|80|v2|nginx.default.svc.cluster.local",
+        "type": "EDS",
+        "edsClusterConfig": {
+            "edsConfig": {
+                "ads": {}
+            },
+            "serviceName": "outbound|80|v2|nginx.default.svc.cluster.local"
+        },
+        "connectTimeout": "1.000s",
+        "lbPolicy": "LEAST_REQUEST",
+        "circuitBreakers": {
+            "thresholds": [
+                {}
+            ]
+        }
+    }
+
+{
+        "name": "outbound|443|v1|nginx.default.svc.cluster.local",
+        "type": "EDS",
+        "edsClusterConfig": {
+            "edsConfig": {
+                "ads": {}
+            },
+            "serviceName": "outbound|443|v1|nginx.default.svc.cluster.local"
+        },
+        "connectTimeout": "1.000s",
+        "lbPolicy": "LEAST_REQUEST",
+        "circuitBreakers": {
+            "thresholds": [
+                {}
+            ]
+        }
+    }
+
+{
+        "name": "outbound|443|v2|nginx.default.svc.cluster.local",
+        "type": "EDS",
+        "edsClusterConfig": {
+            "edsConfig": {
+                "ads": {}
+            },
+            "serviceName": "outbound|443|v2|nginx.default.svc.cluster.local"
+        },
+        "connectTimeout": "1.000s",
+        "lbPolicy": "RANDOM",
+        "circuitBreakers": {
+            "thresholds": [
+                {}
+            ]
+        }
+    }
+```
+
+- istio pilot根据相关destinationrule生成4个cluster，分别为：
+- outbound|80|v1|nginx.default.svc.cluster.local。
+- outbound|80|v2|nginx.default.svc.cluster.local。
+- outbound|443|v1|nginx.default.svc.cluster.local。
+- outbound|443|v2|nginx.default.svc.cluster.local。
+- 因为使用了subset port级别的trafficpolicy，所以outbound|80|v1|nginx.default.svc.cluster.local的lbpolicy为random。
+- 因为使用了subset port级别的trafficpolicy，所以outbound|443|v1|nginx.default.svc.cluster.local的lbpolicy为least_request。
+- 因为使用了subset port级别的trafficpolicy，所以outbound|80|v2|nginx.default.svc.cluster.local的lbpolicy为least_request。
+- 因为使用了subset port级别的trafficpolicy，所以outbound|443|v2|nginx.default.svc.cluster.local的lbpolicy为random。
