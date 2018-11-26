@@ -293,7 +293,7 @@ spec:
 - envoy route相关配置。
 - 因为virtualservice类型为http，所以路由会在route中进行。
 - envoy route会将headers为want: v1的请求全部转发至outbound|80|v1|nginx.external.svc.cluster.local这个cluster。
-- egress route会将headers为want: v2的请求全部转发至outbound|80|v2|nginx.external.svc.cluster.local这个cluster。
+- envoy route会将headers为want: v2的请求全部转发至outbound|80|v2|nginx.external.svc.cluster.local这个cluster。
 
 
 
