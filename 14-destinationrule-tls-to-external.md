@@ -45,10 +45,10 @@
 
 ![14-destinationrule-tls-to-external-3](./images/14-destinationrule-tls-to-external-3.png)
 
-1. 从sleep container到istio-proxy container的请求为http请求，http://nginx.external.svc.cluster.local 。
-2. 配置destinationrule的目标主机，outbound|443|v1|nginx.external.svc.cluster.local，启用TLS。
-3. 在istio-proxy上，为到目标端主机的请求加载TLS配置。
-4. 采用这种方式，从sleep container到istio-proxy container的请求，可以使用istio-proxy的http connection manager的高级路由功能。
+- 从sleep container到istio-proxy container的请求为http请求，http://nginx.external.svc.cluster.local 。
+- 配置destinationrule的目标主机，outbound|443|v1|nginx.external.svc.cluster.local，启用TLS。
+- 在istio-proxy上，为到目标端主机的请求加载TLS配置。
+- 采用这种方式，从sleep container到istio-proxy container的请求，可以使用istio-proxy的http connection manager的高级路由功能。
 
 
 
