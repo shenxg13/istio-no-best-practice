@@ -25,8 +25,8 @@
 
 ![14-destinationrule-tls-to-external-1](./images/14-destinationrule-tls-to-external-1.png)
 
-- 从sleep container直接发送tls请求，https://nginx.external.svc.cluster.local，到istio-proxy container。
-- istio-proxy直接转发该tls请求，https://nginx.external.svc.cluster.local，至nginx vm。
+- 从sleep container直接发送tls请求，https://nginx.external.svc.cluster.local ，到istio-proxy container。
+- istio-proxy直接转发该tls请求，https://nginx.external.svc.cluster.local ，至nginx vm。
 - 不需要对目标主机配置任何的destinationrule。
 - 采用这种方式，路由将直接在istio-proxy的tcp proxy中进行，无法使用istio-proxy的http connection manager的高级路由功能。
 
@@ -45,7 +45,7 @@
 
 ![14-destinationrule-tls-to-external-3](./images/14-destinationrule-tls-to-external-3.png)
 
-1. 从sleep container到istio-proxy container的请求为http请求，http://nginx.external.svc.cluster.local。
+1. 从sleep container到istio-proxy container的请求为http请求，http://nginx.external.svc.cluster.local 。
 2. 配置destinationrule的目标主机，outbound|443|v1|nginx.external.svc.cluster.local，启用TLS。
 3. 在istio-proxy上，为到目标端主机的请求加载TLS配置。
 4. 采用这种方式，从sleep container到istio-proxy container的请求，可以使用istio-proxy的http connection manager的高级路由功能。
@@ -314,7 +314,7 @@ Commercial support is available at
 / #
 ```
 
-- 使用https://nginx.external.svc.cluster.local，可以正确访问外部nginx服务。
+- 使用https://nginx.external.svc.cluster.local ，可以正确访问外部nginx服务。
 - 这种访问访问通过tcp进行路由，并在sleep container上加载tls设置。
 
 
@@ -350,5 +350,5 @@ Commercial support is available at
 / #
 ```
 
-- 使用http://nginx.external.svc.cluster.local，可以正确访问外部nginx服务。
+- 使用http://nginx.external.svc.cluster.local ，可以正确访问外部nginx服务。
 - 这种访问访问通过http进行路由，并在istio-proxy上加载tls设置。
