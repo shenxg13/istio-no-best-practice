@@ -489,21 +489,6 @@ server {
         root /usr/share/nginx/html;
     }
 }
-
-server {
-    listen 80;
-    server_name localhost;
-
-    location / {
-        root /usr/share/nginx/html/v1;
-        index index.html index.htm;
-    }
-
-    error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-        root /usr/share/nginx/html;
-    }
-}
 ```
 
 - 准备外部nginx服务器的配置文件。
