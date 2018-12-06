@@ -71,7 +71,7 @@ spec:
 
 ### Server Nginx
 
-```bash
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
