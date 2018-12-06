@@ -9,4 +9,5 @@ istio no best practice.
 5. [Istio数据面配置解析13：Destination Rule中的Traffic Policy会被应用到哪里](./13-destinationrule-where-trafficpolicy-applied.md)
 6. [Istio数据面配置解析14：在Destination Rule中配置到外部的TLS](./14-destinationrule-tls-to-external.md)
 7. [Istio数据面配置解析15：在Destination Rule中通过Egress Gateway配置到外部的mTLS](./15-destinationrule-mtls-to-external-via-egressgateway.md)
+8. [Istio数据面配置解析16：使用Policy配置Peer mTLS Authentication](./16-security-peer-mtls-authentication.md)
 
