@@ -10,4 +10,5 @@ istio no best practice.
 6. [Istio数据面配置解析14：在Destination Rule中配置到外部的TLS](./14-destinationrule-tls-to-external.md)
 7. [Istio数据面配置解析15：在Destination Rule中通过Egress Gateway配置到外部的mTLS](./15-destinationrule-mtls-to-external-via-egressgateway.md)
 8. [Istio数据面配置解析16：使用Policy配置Peer mTLS Authentication](./16-security-peer-mtls-authentication.md)
+9. [Istio数据面配置解析17：Citadel和Secure Naming](./17-security-citadel-and-secure-naming.md)
 
