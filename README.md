@@ -22,6 +22,5 @@ istio no best practice.
 18. Isitio数据面配置解析18：使用RBAC对Http请求进行授权
 19. Isitio数据面配置解析19：使用RBAC对TCP请求进行授权（1.1）
 20. Isitio数据面配置解析20：在路由不可达的Overlay网络中使用Mesh Expansion
-21. Isitio数据面配置解析21：让Overlay网络变得路由可达
-22. Isitio数据面配置解析22：在路由可达的Overlay网络中使用Mesh Expansion
+21. Isitio数据面配置解析22：在路由可达的Overlay网络中使用Mesh Expansion
 
