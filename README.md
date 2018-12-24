@@ -20,7 +20,7 @@ istio no best practice.
 16. [Istio数据面配置解析16：使用Policy配置Peer mTLS Authentication](./16-security-peer-mtls-authentication.md)
 17. [Istio数据面配置解析17：Citadel和Secure Naming](./17-security-citadel-and-secure-naming.md)
 18. [Isitio数据面配置解析18：使用RBAC对Http请求进行授权](./18-security-http-request-with-rbac.md)
-19. Isitio数据面配置解析19：使用RBAC对TCP请求进行授权（1.1）
+19. [Istio数据面配置解析19：使用RBAC对Tcp连接进行授权（1.1）](./19-security-tcp-connection-with-rbac.md)
 20. [Istio数据面配置解析20：在网络路由可达的Bare Metal环境中使用Mesh Expansion](./20-mesh-expansion-in-unrouteable-network-bare-metal.md)
 21. [Istio数据面配置解析21：在网络路由可达的Bare Metal环境中使用Mesh Expansion](./21-mesh-expansion-in-routeable-network-bare-metal.md)
 
