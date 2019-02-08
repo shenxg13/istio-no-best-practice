@@ -28,19 +28,12 @@ Http类型的路由均在Envoy route中进行。
 ![03-serviceentry-to-external-with-static-2](./images/03-serviceentry-to-external-with-static-2.png)
 
 - 使用k8s service定义envoy cluster名称。
-
 - 使用istio serviceentry定义外部的nginx服务到envoy cluster和endpoint中的节点。
-
 - 两个节点分别对应nginx01 vm和nginx02 vm。
-
 - 为外部的nginx服务在serviceentry中定义label。
-
 - 使用istio destinationrule为不同的label定义不同的subset。
-
 - 使用istio virtualservice定义到2个节点的envoy route。
-
 - http request header中包含want: v1的请求被路由到subset v1。
-
 - http request header中包含want: v2的请求被路由到subset v2。
 
 
