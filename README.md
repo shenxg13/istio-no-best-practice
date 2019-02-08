@@ -5,7 +5,7 @@ istio no best practice.
 1. [Istio数据面配置解析01：在Ingress Gateway中对基于sniHosts的TLS请求进行路由](./01-ingress-passthrough-tls-with-snihosts.md)
 2. [Istio数据面配置解析02：在Egress Gateway中对基于sniHosts的TLS请求进行路由](./02-egress-passthrough-tls-with-snihosts.md)
 3. [Istio数据面配置解析03：使用Service Entry的static模式将Http请求路由至外部](./03-serviceentry-to-external-with-static.md)
-4. Isitio数据面配置解析04：使用Service Entry通过Egress Gateway将Http请求路由至外部
+4. [Isitio数据面配置解析04：使用Service Entry通过Egress Gateway将Http请求路由至外部](./04-serviceentry-to-external-with-egress.md)
 5. Isitio数据面配置解析05：使用Service Entry的strictdns模式将Http请求路由至外部
 6. Isitio数据面配置解析06：使用Service Entry的none模式将Http请求路由至外部
 7. Isitio数据面配置解析07：使用Ingress Gateway对单主机非TLS请求进行路由
