@@ -637,6 +637,5 @@ Commercial support is available at
 ```
 
 - 测试结果。
-
 - http header为want:v1的请求被正确转发至nginx01。
 - http header为want:v2的请求被正确转发至nginx02。
