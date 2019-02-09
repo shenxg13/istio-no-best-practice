@@ -146,7 +146,7 @@ ENDPOINT              STATUS      CLUSTER
 ```
 
 - envoy endpoint相关配置。
-- istio会尝试通过DNS解析该主机相关的ip地址，并将解析出的ip地址作为该主机相关cluster的endpoint。。
+- istio会尝试通过DNS解析该主机相关的ip地址，并将解析出的ip地址作为该主机相关cluster的endpoint。
 
 
 
