@@ -9,7 +9,7 @@ istio no best practice.
 5. [Isitio数据面配置解析05：使用Service Entry的strict_dns模式将Http请求路由至外部](./05-serviceentry-to-external-with-strictdns.md)
 6. [Isitio数据面配置解析06：使用Service Entry的none模式将Http请求路由至外部](./06-serviceentry-to-external-with-none.md)
 7. [Isitio数据面配置解析07：使用Ingress Gateway对单主机非TLS请求进行路由](./07-ingress-no-tls-single-host.md)
-8. Isitio数据面配置解析08：使用Ingress Gateway对单主机TLS请求进行路由
+8. [Isitio数据面配置解析08：使用Ingress Gateway对单主机TLS请求进行路由](./08-ingress-tls-single-host.md)
 9. Isitio数据面配置解析09：使用Ingress Gateway对单主机mTLS请求进行路由
 10. Isitio数据面配置解析10：使用Ingress Gateway对多主机非TLS请求进行路由
 11. Isitio数据面配置解析11：使用Ingress Gateway对多主机TLS请求进行路由
