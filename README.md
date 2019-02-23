@@ -11,7 +11,7 @@ istio no best practice.
 7. [Isitio数据面配置解析07：使用Ingress Gateway对单主机非TLS请求进行路由](./07-ingress-no-tls-single-host.md)
 8. [Isitio数据面配置解析08：使用Ingress Gateway对单主机TLS请求进行路由](./08-ingress-tls-single-host.md)
 9. [Isitio数据面配置解析09：使用Ingress Gateway对单主机mTLS请求进行路由](./09-ingress-mtls-single-host.md)
-10. Isitio数据面配置解析10：使用Ingress Gateway对多主机非TLS请求进行路由
+10. [Isitio数据面配置解析10：使用Ingress Gateway对多主机非TLS请求进行路由](./10-ingress-no-tls-multiple-hosts.md)
 11. Isitio数据面配置解析11：使用Ingress Gateway对多主机TLS请求进行路由
 12. [Istio数据面配置解析12：在Destination Rule中配置4个级别的Traffic Policy](./12-destinationrule-4-level-trafficpolicy.md)
 13. [Istio数据面配置解析13：Destination Rule中的Traffic Policy会被应用到哪里](./13-destinationrule-where-trafficpolicy-applied.md)
