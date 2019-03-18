@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito的DestinationRule中通过Egress Gateway配置到外部的mTLS：
+本文介绍了在Istio的DestinationRule中通过Egress Gateway配置到外部的mTLS：
 
 1. 因为DestinationRule的应用位置为client端的Envoy proxy，所以针对某个目标配置DestinationRule的mTLS时，是配置的client端连接到该目标的参数信息，包括client端的Envoy proxy使用的证书，证书相关的密钥，以及根证书信息。
 2. Envoy proxy作为client端，发起mTLS连接。

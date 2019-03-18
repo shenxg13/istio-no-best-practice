@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中DestinationRule中trafficPolicy的4个级别：
+本文介绍了在Istio中DestinationRule中trafficPolicy的4个级别：
 
 1. Global级别。
 2. Global Port级别。

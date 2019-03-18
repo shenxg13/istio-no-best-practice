@@ -1,4 +1,4 @@
-# Isitio数据面配置解析10：使用Ingress Gateway对多主机非TLS请求进行路由
+# Istio数据面配置解析10：使用Ingress Gateway对多主机非TLS请求进行路由
 
 
 
@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中接收请求的场景：使用Ingress Gateway对多主机非TLS请求进行路由。
+本文介绍了在Istio中接收请求的场景：使用Ingress Gateway对多主机非TLS请求进行路由。
 
 
 

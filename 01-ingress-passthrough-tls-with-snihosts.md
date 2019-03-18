@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中直接转发TLS请求的场景：外部服务通过Igress Gateway访问Mesh内部的TLS服务。
+本文介绍了在Istio中直接转发TLS请求的场景：外部服务通过Igress Gateway访问Mesh内部的TLS服务。
 
 TLS类型的路由属于TCP，所以无Envoy route相关配置，路由均在listener中进行。
 

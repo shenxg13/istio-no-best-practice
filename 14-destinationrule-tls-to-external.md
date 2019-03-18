@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito的DestinationRule中配置到外部的TLS：
+本文介绍了在Istio的DestinationRule中配置到外部的TLS：
 
 1. 可以从client container直接发送tls请求到client Envoy proxy。
 2. client Envoy proxy直接转发该tls请求至目标主机。

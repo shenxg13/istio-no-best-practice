@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用RBAC对Http请求进行授权：
+本文介绍了在Istio中使用RBAC对Http请求进行授权：
 
 1. 1.0版本针对Http的RBAC授权的配置会被加到Server端inbound listener的envoy.http_connection_manager这个filter的envoy.filters.http.rbac中。
 2. 1.0版本只支持针对Http的RBAC授权。

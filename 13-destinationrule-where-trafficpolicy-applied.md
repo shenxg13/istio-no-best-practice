@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中DestinationRule中trafficPolicy的应用位置：
+本文介绍了在Istio中DestinationRule中trafficPolicy的应用位置：
 
 1. trafficPolicy应用在client端的outbound cluster中。
 2. **在请求从client端的Envoy proxy发出时，会应用相关的trafficPolicy。**

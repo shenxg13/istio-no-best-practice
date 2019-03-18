@@ -1,4 +1,4 @@
-# Isitio数据面配置解析04：使用Service Entry通过Egress Gateway将Http请求路由至外部
+# Istio数据面配置解析04：使用Service Entry通过Egress Gateway将Http请求路由至外部
 
 
 
@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中直接将Http请求转发至外部的场景：Mesh内部服务通过Service Entry和Egress Gateway访问外部的mTLS服务。
+本文介绍了在Istio中直接将Http请求转发至外部的场景：Mesh内部服务通过Service Entry和Egress Gateway访问外部的mTLS服务。
 
 本文也对mTLS在Envoy中的配置进行一些解析。
 

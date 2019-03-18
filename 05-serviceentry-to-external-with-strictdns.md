@@ -1,4 +1,4 @@
-# Isitio数据面配置解析05：使用Service Entry的strict_dns模式将Http请求路由至外部
+# Istio数据面配置解析05：使用Service Entry的strict_dns模式将Http请求路由至外部
 
 
 
@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用strict_dns的方式将Http请求转发至外部的场景：在使用strict_dns模式时，Istio会尝试通过DNS解析该主机相关的IP地址，并将解析出的IP地址作为该主机相关Cluster的Endpoint。
+本文介绍了在Istio中使用strict_dns的方式将Http请求转发至外部的场景：在使用strict_dns模式时，Istio会尝试通过DNS解析该主机相关的IP地址，并将解析出的IP地址作为该主机相关Cluster的Endpoint。
 
 
 

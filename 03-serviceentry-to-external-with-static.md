@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用Service Entry的场景：Mesh内部服务通过stattic模式的Service Entry访问外部的Http服务。
+本文介绍了在Istio中使用Service Entry的场景：Mesh内部服务通过stattic模式的Service Entry访问外部的Http服务。
 
 Http类型的路由均在Envoy route中进行。
 

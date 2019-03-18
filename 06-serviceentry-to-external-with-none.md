@@ -1,4 +1,4 @@
-# Isitio数据面配置解析06：使用Service Entry的none模式将Http请求路由至外部
+# Istio数据面配置解析06：使用Service Entry的none模式将Http请求路由至外部
 
 
 
@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用none的方式将Http请求转发至外部的场景：在使用none模式时，该主机相关Cluster没有对应的Endpoint信息。
+本文介绍了在Istio中使用none的方式将Http请求转发至外部的场景：在使用none模式时，该主机相关Cluster没有对应的Endpoint信息。
 
 
 

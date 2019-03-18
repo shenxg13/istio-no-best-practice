@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中接收请求的场景：使用Ingress Gateway对单主机非TLS请求进行路由。
+本文介绍了在Istio中接收请求的场景：使用Ingress Gateway对单主机非TLS请求进行路由。
 
 
 

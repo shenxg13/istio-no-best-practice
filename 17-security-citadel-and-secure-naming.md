@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用Citadel的证书和密钥进行mTLS通信，以及Secure Naming的工作机制：
+本文介绍了在Istio中使用Citadel的证书和密钥进行mTLS通信，以及Secure Naming的工作机制：
 
 1. 使用Citadel生成证书和密钥。
 2. 配置Client端使用Citadel生成的证书和密钥。

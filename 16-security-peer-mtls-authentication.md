@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用Policy配置Peer mTLS Authentication：
+本文介绍了在Istio中使用Policy配置Peer mTLS Authentication：
 
 1. 为Server端配置Policy，启用mTLS卸载。
 2. Server端在应用Policy后，会在inbound listnener中加载相应配置和证书。

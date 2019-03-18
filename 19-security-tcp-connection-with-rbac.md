@@ -8,7 +8,7 @@
 
 ## 概述
 
-本文介绍了在Isito中使用RBAC对Tcp连接进行授权：
+本文介绍了在Istio中使用RBAC对Tcp连接进行授权：
 
 1. 1.1版本针对Tcp的RBAC授权的配置会被加到Server端inbound listener的envoy.filters.network.rbac中。
 2. 1.1版本支持针对Tcp的RBAC授权。
